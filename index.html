@@ -75,33 +75,49 @@ p {
 </div>
 
 <div class="card hidden" id="content">
-  <h1>Good Morning 🌤️</h1>
-
-  <p>
-    I hope you woke up feeling a little lighter today.<br>
-    Whatever felt heavy last night doesn’t have to stay with you.
-  </p>
-
-  <p>
-    Take things slowly and be gentle with yourself 🤍
-  </p>
-
-  <p>
-    You matter more than you know 🌸
-  </p>
+  <h1 id="greeting">Hello 🌸</h1>
+  
+<p id="dynamicText"></p>
 
   <div style="font-size:30px;">💗</div>
 </div>
 
 <script>
-const input = document.getElementById("pw");
+const hour = new Date().getHours();
+let greetingText = "";
+let messageText = "";
 
-input.addEventListener("input", function () {
-  if (this.value.trim().toLowerCase() === "bacchu") {
-    document.getElementById("lock").style.display = "none";
-    document.getElementById("content").classList.remove("hidden");
-  }
-});
+if (hour >= 5 && hour < 12) {
+  greetingText = "Good Morning 🌤️";
+  messageText = `
+    I hope you woke up feeling a little lighter today.<br>
+    Whatever felt heavy last night doesn’t have to stay with you.
+  `;
+}
+else if (hour >= 12 && hour < 17) {
+  greetingText = "Good Afternoon ☀️";
+  messageText = `
+    Hope your day is going gently.<br>
+    Take small pauses and be kind to yourself 🤍
+  `;
+}
+else if (hour >= 17 && hour < 21) {
+  greetingText = "Good Evening 🌆";
+  messageText = `
+    You made it through the day.<br>
+    I hope you’re finding a little calm right now 🌸
+  `;
+}
+else {
+  greetingText = "Good Night 🌙";
+  messageText = `
+    It’s okay to rest now.<br>
+    Let go of today and be gentle with yourself 💛
+  `;
+}
+
+document.getElementById("greeting").innerHTML = greetingText;
+document.getElementById("dynamicText").innerHTML = messageText;
 </script>
 
 </body>

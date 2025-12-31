@@ -86,6 +86,35 @@ p {
     transform: scale(1);
   }
 } 
+  /* Sparkles + Hearts */
+.sparkle, .heart-float {
+  position: fixed;
+  bottom: -40px;
+  font-size: 20px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart-float {
+  color: #e75480;
+  font-size: 22px;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.2);
+    opacity: 0;
+  }
+}
 </style>
 </head>
 
@@ -211,6 +240,33 @@ else {
 document.getElementById("greeting").innerHTML = greetingText;
 document.getElementById("dynamicText").innerHTML = messageText;
 </script>
+<script>
+const today = new Date();
+const isNewYear = today.getDate() === 1 && today.getMonth() === 0;
 
+if (isNewYear) {
+  for (let i = 0; i < 18; i++) {
+    createSparkle();
+  }
+}
+
+function createSparkle() {
+  const el = document.createElement("div");
+  el.className = Math.random() > 0.5 ? "sparkle" : "heart-float";
+  el.innerHTML = Math.random() > 0.5 ? "✨" : "💗";
+
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.animationDuration = 6 + Math.random() * 6 + "s";
+
+  document.body.appendChild(el);
+
+  setTimeout(() => {
+    el.remove();
+    if (new Date().getDate() === 1 && new Date().getMonth() === 0) {
+      createSparkle();
+    }
+  }, 9000);
+}
+</script>
 </body>
 </html>

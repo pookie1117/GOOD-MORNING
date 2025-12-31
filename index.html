@@ -109,51 +109,102 @@ p {
 </div>
 
 <script>
-function unlock() {
-  const entered = document.getElementById("pw").value.trim().toLowerCase();
+const now = new Date();
+const hour = now.getHours();
+const day = now.getDate();
+const month = now.getMonth(); // January = 0
 
-  // 🔐 CHANGE PASSWORD HERE
-  const password = "bacchu";
-
-  if (entered === password) {
-    document.getElementById("lock").style.display = "none";
-    document.getElementById("content").classList.remove("hidden");
-  } else {
-    alert("Try the special word 💗");
-  }
-}
-
-// time-based message
-const hour = new Date().getHours();
 let greetingText = "";
 let messageText = "";
 
-if (hour >= 5 && hour < 12) {
-  greetingText = "Good Morning 🌤️";
+// 🎉 NEW YEAR (Jan 1)
+if (day === 1 && month === 0) {
+  greetingText = "Happy New Year 💫💗";
   messageText = `
-    I hope you woke up feeling a little lighter today.<br>
-    Whatever felt heavy last night doesn’t have to stay with you.
+    A brand new year begins today, Bacchu 🌸<br>
+    and I just wanted to send you something warm and full of care.<br><br>
+
+    May this year bring you peace where you need it,
+    calm in your thoughts,
+    and many little moments that make you smile 🤍<br><br>
+
+    You deserve love, softness, and happiness —
+    today and always 💞<br><br>
+
+    With warmth and good wishes,<br>
+    from Pookie 💗
   `;
 }
+
+/* 🌅 MORNING */
+else if (hour >= 5 && hour < 12) {
+  greetingText = "Good Morning 🌤️";
+  messageText = `
+    Good morning, Bacchu 🌸<br>
+    I hope you woke up feeling a little lighter today.<br><br>
+
+    You don’t have to rush or be strong —
+    just take this morning slowly and gently 🤍<br><br>
+
+    I hope today brings you calm thoughts,
+    soft moments, and a small smile on your face 💗<br><br>
+
+    Always thinking of you,<br>
+    from Pookie 💞
+  `;
+}
+
+/* ☀️ AFTERNOON */
 else if (hour >= 12 && hour < 17) {
   greetingText = "Good Afternoon ☀️";
   messageText = `
-    Hope your day is going gently.<br>
-    Take small pauses and be kind to yourself 🤍
+    Hey Bacchu 🌼<br>
+    I hope your day is going gently so far.<br><br>
+
+    Even if things feel a little heavy,
+    please remember you’re doing your best 🤍<br><br>
+
+    Take a small pause, breathe slowly,
+    and be kind to yourself 💗<br><br>
+
+    Sending you quiet warmth,<br>
+    from Pookie 💞
   `;
 }
+
+/* 🌆 EVENING */
 else if (hour >= 17 && hour < 21) {
   greetingText = "Good Evening 🌆";
   messageText = `
-    You made it through the day.<br>
-    I hope you’re finding a little calm right now 🌸
+    Good evening, Bacchu 🌸<br>
+    You made it through the day — and that matters.<br><br>
+
+    I hope you’re finding a little calm right now,
+    a little space to breathe and relax 🤍<br><br>
+
+    You deserve comfort, care,
+    and peaceful moments this evening 💗<br><br>
+
+    Thinking of you softly,<br>
+    from Pookie 💞
   `;
 }
+
+/* 🌙 NIGHT */
 else {
   greetingText = "Good Night 🌙";
   messageText = `
-    It’s okay to rest now.<br>
-    Let go of today and be gentle with yourself 💛
+    Good night, Bacchu 🌙<br>
+    It’s okay to rest now and let the day fade away.<br><br>
+
+    You don’t need to carry everything with you —
+    tomorrow is a new chance 🤍<br><br>
+
+    Sleep gently and peacefully,
+    you truly matter 💗<br><br>
+
+    Always wishing you comfort,<br>
+    from Pookie 💞
   `;
 }
 
